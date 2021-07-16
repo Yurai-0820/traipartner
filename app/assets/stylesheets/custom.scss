@@ -1,0 +1,391 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+  height: 100%;
+
+  background-image: image-url("cherry-blossom_00005.jpg");
+  background-size: cover;
+  background-color:rgba(255,255,255,0.5);
+  background-blend-mode:lighten;
+  color: #000000;
+}
+
+.main-container h1{
+  font-family: 'Sacramento', cursive;
+}
+
+.nav {
+  margin-bottom: 100px;
+}
+
+.top-signup{
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  margin-top: 50px;
+  padding: .9em 3.6em;
+  border: 2px solid #fff;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  outline: none;
+  transition: all .3s;
+}
+
+.top-signup::before,
+.top-signup::after {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  z-index: 2;
+  content: '';
+  transition: all .3s;
+}
+.top-signup::before {
+  border-top: 2px solid #3be5ae;
+  border-bottom: 2px solid #3be5ae;
+  transform: scale(0, 1);
+}
+.top-signup::after {
+  border-right: 2px solid #3be5ae;
+  border-left: 2px solid #3be5ae;
+  transform: scale(1, 0);
+}
+.top-signup:hover {
+  color: #3be5ae;
+}
+.top-signup:hover::after,
+.top-signup:hover::before {
+  transform: scale(1);
+}
+
+.top-wrapper{
+  background-image: image-url('4734512_s.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  background-color:rgba(255,255,255,0.5);
+  background-blend-mode:lighten;
+
+  height: 500px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 50px;
+}
+
+header{
+  border-top:3px solid #000;
+}
+
+.headerNavBtn {
+  text-align:center;
+  height:3em;
+  line-height:3em;
+  color:#050505;
+  font-size:16px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  line-height: 50px;
+}
+
+.headerNavBox a{
+  text-decoration: none;
+  color: #001aff;
+}
+
+.headerNavBtn:hover{
+  background-color: rgba(255, 255, 255, .2);
+  transition: 1.0s ;
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.tag {
+  margin-bottom: 50px;
+}
+
+.tag-form{
+  margin-top: 50px;
+}
+
+.tag-button {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.tag-delete-button {
+  margin-bottom: 20px;
+}
+
+.top-nav-tabs{
+  margin-top: 30px;
+}
+
+.image-fit {
+  object-fit: cover;
+}
+
+.avatar{
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+section.message_box {
+  padding: 10px;
+  //border: 1px solid $gray-light;
+  overflow: scroll;
+  #messages {
+    height: 500px;
+  }
+}
+
+div#message_fixed {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+}
+
+div#message-bk{
+  background-color:#444;
+	padding: 10px 0 20px;
+	height: 50px;
+	width: 100%;
+}
+
+div#message-footer{
+	height: 100%;
+	width: 800px; 
+	margin: auto;
+}
+
+#message_sender {
+  font-size: 1.1em;
+}
+
+#message_content {
+  font-size: 1.0em;
+}
+
+.messagebox-user{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #D3D3D3;
+  height: 50px;
+  padding-top: 15px;
+  color: #000033;
+}
+
+#message_content{
+  font-family: "serif";
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: 100px;
+}
+
+.top-nav-tabs a{
+  color: #FFFFFF;
+}
+
+.top-nav-tabs a:hover{
+  color: #000000;
+}
+
+.user-nav-tabs a{
+  color: #FFFFFF;
+}
+
+.user-nav-tabs a:hover{
+  color: #000000;
+}
+
+.username{
+  margin-top: 20px;
+}
+
+.username a{
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.top{
+  margin-top: 50px;
+  background-image: image-url('signIn_redies_1.jpeg');
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.middle{
+  margin-top: 50px;
+  background-image: image-url('training.jpeg');
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.bottom{
+  margin-top: 50px;
+  background-image: image-url('trouble-contents.jpeg');
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.top .caption {
+	font-size:		130%;
+	color:			#fff;
+	padding-top:		80px;
+}
+.top .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.4s ease;
+	transition:		all 0.4s ease;
+	-webkit-transform:	scale(0);	
+	transform:		scale(0);
+}
+
+.top:hover .mask {
+	-webkit-transform:	scale(1);
+	transform:		scale(1);
+}
+
+.middle .caption {
+	font-size:		130%;
+	color:			#fff;
+	padding-top:		80px;
+}
+.middle .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.4s ease;
+	transition:		all 0.4s ease;
+	-webkit-transform:	scale(0);
+	transform:		scale(0);
+}
+
+.middle:hover .mask {
+	-webkit-transform:	scale(1);
+	transform:		scale(1);
+}
+
+.bottom .caption {
+	font-size:		130%;
+	color:			#fff;
+	padding-top:		80px;
+}
+
+.bottom .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	background-color:	rgba(0,0,0,0.4);
+	-webkit-transition:	all 0.4s ease;
+	transition:		all 0.4s ease;
+	-webkit-transform:	scale(0);
+	transform:		scale(0);
+}
+
+.bottom:hover .mask {
+	-webkit-transform:	scale(1);
+	transform:		scale(1);
+}
+
+.footer-bottom{
+  display: inline-block;
+}
+
+.card{
+  background-color: #333333;
+}
+
+.card a{
+  color: #FFFFFF;
+}
+
+.posts-content{
+  word-wrap: break-word;
+}
+
+.tweet{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #FFFFFF;
+  border-top: solid 5px #333333;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.tweet p{
+  margin: 0; 
+  padding: 0;
+  margin-top: 10px;
+}
+
+.tweet a{
+  color: #FFFFFF;
+}
+
+.contact{
+  margin-top: 50px;
+}
+
+.search-label{
+  margin-right: 20px;
+}
+
+.search-button{
+  margin-bottom: 30px;
+}
+
+footer{
+  margin-top: 100px;
+  margin-bottom: 10px;
+  border-top: 1px solid #EEEEEE;
+  text-align: center;
+}

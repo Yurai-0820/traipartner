@@ -1,0 +1,38 @@
+<div class="text-center">
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, size: '150x150', class: "image-fit" %>
+  <% end %>
+    <p><%= @user.nickname %></p>
+  <% if user_signed_in? && current_user.id != @user.id %>
+    <%= render 'relationships/follow_button', user: @user %>
+  <% end %>
+  <% if user_signed_in? && current_user.id == @user.id  %>
+    <%= link_to 'プロフィール編集', edit_user_registration_path(current_user), class: 'btn btn-primary' %>
+  <% end %>
+  
+</div>
+
+<div class="row">
+  <div class="col-sm-5">
+    <p class='text-center'>所属ジム</p>
+    <% unless @user.gymnasium.nil? %>
+      <%= @user.gymnasium.gsub(/\r\n|\r|\n/, "<br />").html_safe %>
+    <% else %>
+      <% if current_user.id == @user.id %>
+        <p>プロフィールを入力しませんか？</p>
+      <% else %>
+        <p>プロフィールは未入力です</p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-sm-6">
+    <p class='text-center'>詳細</p>
+    <ul class="nav nav-tabs nav-justified mb-3 user-nav-tabs">
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Posts</a></li>
+      <%# <li class="nav-item"><a href="<%= add_tag_user_path(@user) >" class="nav-link <%= 'active' if current_page?(add_tag_user_path(@user)) >">Tags</a></li> %>
+    </ul>
+    <%# <a class="top-signup", href="<%= posts_path >">投稿画面へ</a> %>
+    <%# <%= render 'posts/posts', posts: @posts %> 
+  </div>
+</div>
+

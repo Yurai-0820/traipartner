@@ -1,0 +1,55 @@
+
+<% if user_signed_in? %>
+  <div class='text-center'>
+    <%= image_tag current_user.avatar, size: '75x75', class: 'avatar' if current_user.avatar.attached?%>
+    <p style="color:#FFFFFF"><%= current_user.nickname %></p>
+  </div>
+  
+  <ul class="nav nav-tabs nav-justified mb-3 top-nav-tabs">
+    <li class="nav-item"><a href="<%= root_path %>" class="nav-link <%= 'active' if current_page?(root_path) %>">マッチング</a></li>
+    <%# <li class="nav-item"><a href="<%= followers_user_path(current_user) >" class="nav-link <%= 'active' if current_page?(followers_user_path(current_user)) >">いいねされてる</a></li> %>
+  </ul>
+  <%# <%= render 'messages/message_top', users: @users %> 
+<% else %>
+  <div class="site-description text-center">
+    <h3 style="font-size: 16px">トレーニングパートナーを探すマッチングアプリ。</h3>
+    <p class='mt-5'>■ ■ ■このWEBサイトについて ■ ■ ■</p>
+    <p>トレーニングの補助が欲しい!!けど・・・</p>
+    <p>なかなか話しかけるのが恥ずかしい・・・</p>
+    <p class="mb-5">トレパーでは、同じジムに通うトレーニーに気軽にメッセージを送れます。</p>
+   
+  </div>
+  
+  <a class="top-signup login", href="<%= new_user_session_path %>">Login</a>
+  
+  <div class='top' ontouchstart="">
+    <div class="mask">
+      <p class="caption text-center">いいね機能</p>
+      <div class="caption text-center"><p>気になるユーザーをいいねしよう！<br>いいねが返ってきたらメッセージのやりとりができます</p></div>
+    </div>
+  </div>
+  
+  <div class=middle ontouchstart="">
+    <div class="mask">
+      <p class="caption text-center">ダイレクトメッセージ機能</p>
+      <div class="caption text-center">気になるユーザーにメッセージを送ってみよう！<br>トレーニングの話でも相談でも！</div>
+    </div>
+  </div>
+  
+  <div class='bottom' ontouchstart="">
+    <div class="mask">
+      <p class="caption text-center">タグ機能、つぶやき機能</p>
+      <div class="caption text-center">部位毎のや雑談などのタグに参加したり、つぶやいてみよう！</br>タグやつぶやきから気になるユーザーを探せます</div>
+    </div>
+  </div>
+  
+  <a class="top-signup signup", href="<%= new_user_registration_path %>">Sign up</a>
+  
+  <p class="text-center">or</p>
+
+  <a class="top-signup login", href="<%= new_user_session_path %>">Login</a>
+
+<% end %>
+
+
+</div>

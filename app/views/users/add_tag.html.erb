@@ -1,0 +1,33 @@
+<div class="text-center">
+  <% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar, size: '150x150' %>
+    <% end %>
+  <p><%= @user.name %></p>
+  <% if logged_in? && current_user.id == @user.id  %>
+    <%= link_to 'プロフィール編集', edit_user_registration_path(current_user), class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-sm-5">
+    <p class='text-center'>プロフィール</p>
+    <% unless @user.profile.nil? %>
+      <%= @user.profile.gsub(/\r\n|\r|\n/, "<br />").html_safe %>
+    <% else %>
+      <% if current_user.id == @user.id %>
+        <p>プロフィールを入力しませんか？</p>
+      <% else %>
+        <p>プロフィールは未入力です</p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-sm-6">
+    <p class='text-center'>詳細</p>
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Posts</a></li>
+      <li class="nav-item"><a href="<%= add_tag_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(add_tag_user_path(@user)) %>">Tags</a></li>
+    </ul>
+    <a class="top-signup", href="<%= tags_path %>">タグ一覧へ</a>
+    <%= render 'tags/tags', tags: @user.adding_tags %>
+  </div>
+</div>

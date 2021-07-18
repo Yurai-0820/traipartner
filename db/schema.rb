@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_090057) do
+ActiveRecord::Schema.define(version: 2021_07_18_062720) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,35 @@ ActiveRecord::Schema.define(version: 2021_07_11_090057) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chat_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "tag_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_chat_messages_on_tag_id"
+    t.index ["user_id"], name: "index_chat_messages_on_user_id"
+  end
+
+  create_table "tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_tag_relations_on_tag_id"
+    t.index ["user_id", "tag_id"], name: "index_tag_relations_on_user_id_and_tag_id", unique: true
+    t.index ["user_id"], name: "index_tag_relations_on_user_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tags_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -51,4 +80,9 @@ ActiveRecord::Schema.define(version: 2021_07_11_090057) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chat_messages", "tags"
+  add_foreign_key "chat_messages", "users"
+  add_foreign_key "tag_relations", "tags"
+  add_foreign_key "tag_relations", "users"
+  add_foreign_key "tags", "users"
 end

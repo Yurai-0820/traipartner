@@ -1,2 +1,42 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
+<h2 class='text-center tag'>チャットルーム一覧</h2>
+<h4 class="text-center">チャットルームに参加して、トレーニングについて自由に語り合おう</h4>
+<div class="row">
+  <div class="col-6 offset-3">
+    <%= form_tag(tags_path, method: :get) do %>
+      <div class="form-group">
+        <%= label_tag :search, '検索', class: 'search-label' %>
+        <%= text_field_tag :search, params[:search], class:"form-control" , placeholder: 'キーワードを入力'%>
+      </div>
+      <%= submit_tag '検索', class: "btn btn-primary btn-block search-button" %>
+    <% end %>
+  </div>
+</div>
+<%= render 'tags/tags', tags:@tags %>
+
+<div class="row tag-form">
+  <aside class="col-sm-6 offset-sm-3">
+    <% if user_signed_in? %>
+      <h4 class="text-center">チャットルームに参加して交流を深めよう！</h4>
+      <%= form_with(model: @tag, local: true) do |f| %>
+        <div class="form-group"> 
+          <%= f.label :title, 'チャットルーム名' %>
+          <%= f.text_field :title, class: 'form-control' %>
+          <%= f.label :content, 'チャットルームについての説明' %>
+          <%= f.text_field :content, class: 'form-control' %>
+    
+        </div>
+        <%= f.submit 'チャットルーム作成', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    <% else %>
+      <p class="text-center">チャットルームを追加するにはログインが必要です</p>
+      <a class="top-signup signup", href="<%= signup_path %>">Sign up</a>
+    
+      <p class="text-center">or</p>
+
+      <a class="top-signup login", href="<%= login_path %>">Login</a>
+    <% end %>
+  </aside>
+</div>
+  
+
+

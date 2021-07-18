@@ -1,0 +1,14 @@
+<% if tags.any? %>  
+  <div class='row'>
+    <% tags.each do |tag| %>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-center">
+        <div class="card mb-3">
+          <div class="card-header">
+              <a href="<%= tag_chat_messages_path(tag) %>"><%= tag.title %></a>
+          </div>
+          
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

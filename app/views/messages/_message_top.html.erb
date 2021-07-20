@@ -1,0 +1,23 @@
+<% if users.any? %>
+  <div class='row'>
+    <% users.each do |user| %>
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-8 text-center username">
+        <div class="card mb-3">
+          <div class="card-header">
+            <a class="text-center" href="<%= user_path(user) %>"><%= user.nickname %></a>
+          </div>
+          <div class="card-body">
+            <% if user.avatar.attached? %>
+              <p><%= image_tag user.avatar, size: '100x100' %></p>
+            <% else %>
+              <p>No image</p>
+            <% end %>
+            <%= link_to 'メッセージ', message_path(user), class: 'btn btn-primary'%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>マッチング中のユーザーはいません。</p>
+<% end %>

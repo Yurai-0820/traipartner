@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/show'
   get 'relationships/index'
   get 'posts/index'
   get 'tags/index'
@@ -20,7 +21,10 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :create, :destroy]
   resources :tags, only: [:index, :show, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :messages, only: [:index, :show]
   
+  mount ActionCable.server => '/cable'
+
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'

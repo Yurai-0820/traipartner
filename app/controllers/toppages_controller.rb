@@ -1,9 +1,9 @@
 class ToppagesController < ApplicationController
   def index
     @user = User.all
-      # if user_signed_in?
-      #   @users = current_user.followings & current_user.followers
-      # end
+      if user_signed_in?
+        @users = current_user.followings & current_user.followers
+      end
   end
 
   def contact

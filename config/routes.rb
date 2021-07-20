@@ -10,9 +10,16 @@ Rails.application.routes.draw do
   }
   get 'toppages/index'
   root to: 'toppages#index'
-  resources :users, only: [:index, :show, :create, :destroy]
+  resources :users, only: [:show, :new, :create, :edit, :destroy, :update] do
+    member do
+      get :add_tag
+      get :followings
+      get :followers
+    end
+  end
   resources :posts, only: [:index, :show, :create, :destroy]
   resources :tags, only: [:index, :show, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

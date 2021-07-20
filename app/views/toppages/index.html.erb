@@ -7,9 +7,9 @@
   
   <ul class="nav nav-tabs nav-justified mb-3 top-nav-tabs">
     <li class="nav-item"><a href="<%= root_path %>" class="nav-link <%= 'active' if current_page?(root_path) %>">マッチング</a></li>
-    <%# <li class="nav-item"><a href="<%= followers_user_path(current_user) >" class="nav-link <%= 'active' if current_page?(followers_user_path(current_user)) >">いいねされてる</a></li> %>
+   <li class="nav-item"><a href="<%= followers_user_path(current_user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(current_user)) %>">いいねされてる</a></li>
   </ul>
-  <%# <%= render 'messages/message_top', users: @users %> 
+<%= render 'messages/message_top', users: @users %> 
 <% else %>
   <div class="site-description text-center">
     <h3 style="font-size: 16px">トレーニングパートナーを探すマッチングアプリ。</h3>

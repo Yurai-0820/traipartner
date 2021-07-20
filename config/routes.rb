@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/index'
+  get 'posts/index'
   get 'tags/index'
   get 'users/show'
   get 'contact', to: 'toppages#contact'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   get 'toppages/index'
   root to: 'toppages#index'
   resources :users, only: [:index, :show, :create, :destroy]
+  resources :posts, only: [:index, :show, :create, :destroy]
   resources :tags, only: [:index, :show, :create, :destroy]
   
   devise_scope :user do

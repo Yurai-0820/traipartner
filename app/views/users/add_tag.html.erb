@@ -3,7 +3,7 @@
   <%= image_tag @user.avatar, size: '150x150' %>
     <% end %>
   <p><%= @user.name %></p>
-  <% if logged_in? && current_user.id == @user.id  %>
+  <% if user_signed_in? && current_user.id == @user.id  %>
     <%= link_to 'プロフィール編集', edit_user_registration_path(current_user), class: 'btn btn-primary' %>
   <% end %>
 </div>
